@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ─── SECURITY HEADERS AS META TAGS ───────────────────────────────────
+         Note: Meta-tag CSP is a best-effort fallback. The real enforcement
+         comes from the _headers file (served by GitHub Pages CDN / Cloudflare).
+         Both together = defence in depth.
+    ──────────────────────────────────────────────────────────────────────── -->
+
+    <!--
+      Content Security Policy:
+      - default-src 'self'          → only load resources from your own origin by default
+      - script-src 'self'           → no inline scripts, no eval(), no CDN scripts
+      - style-src 'self' 'unsafe-inline' fonts.googleapis.com
+                                    → allow Google Fonts CSS + Vite's injected styles
+      - font-src fonts.gstatic.com  → allow Google Fonts files
+      - img-src 'self' data:        → images from self + base64 data URIs
+      - connect-src 'self' https://api.github.com
+                                    → allows GitHub Issues API calls for comments
+      - frame-ancestors 'none'      → nobody can embed this in an iframe (clickjacking)
+      - form-action 'self'          → forms can only submit to your own origin
+      - base-uri 'self'             → prevents base tag injection attacks
+      - object-src 'none'           → no Flash, no plugins
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src https://fonts.gstatic.com;
+        img-src 'self' data: https://avatars.githubusercontent.com;
+        connect-src 'self' https://api.github.com;
+        frame-ancestors 'none';
+        form-action 'self';
+        base-uri 'self';
+        object-src 'none';
+      "
+    />
+
+    <!-- Prevents MIME-type sniffing (e.g. serving a .jpg that's actually JS) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Only send the origin (no path) as referrer when navigating to external sites -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Disable browser features you don't need -->
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()"
+    />
+
+    <!-- ─── SEO & SOCIAL ────────────────────────────────────────────────── -->
+    <title>The Epstein Record — A Public Archive</title>
+    <meta
+      name="description"
+      content="A non-partisan public archive documenting the Epstein investigation through court records, FBI files, and established reporting. For accountability. For transparency. For equal justice."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (for social sharing previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Epstein Record" />
+    <meta
+      property="og:description"
+      content="A non-partisan public archive. The people vs. the powerful."
+    />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="The Epstein Record" />
+    <meta
+      name="twitter:description"
+      content="A non-partisan public archive documenting the Epstein investigation."
+    />
+
+    <!-- Favicon (inline SVG as data URI — no external request needed) -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖</text></svg>"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
