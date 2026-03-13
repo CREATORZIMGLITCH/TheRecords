@@ -9,7 +9,7 @@ export default defineConfig({
   // Replace YOUR_REPO_NAME with your actual repository name.
   // If you're using a custom domain or user/org site (username.github.io),
   // change this to base: "/"
-  base: "/YOUR_REPO_NAME/",
+  base: "/TheRecords/",
 
   build: {
     outDir: "dist",
