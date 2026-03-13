@@ -1407,7 +1407,7 @@ export default function EpsteinRecord() {
               </button>
             </div>
             <nav style={{ display:"flex", alignItems:"center", borderBottom:"1px solid var(--text-faint)", overflowX:"auto", scrollbarWidth:"none" }}>
-              <div style={{ display:"flex", flex:1, flexWrap:"nowrap", minWidth:"max-content" }}>
+              <div style={{ display:"flex", flexWrap:"nowrap", minWidth:"max-content", width:"100%", justifyContent:"center" }}>
                 {CATEGORIES.map((c,i)=>{
                   const isDYR = c === "Do Your Research";
                   return (
